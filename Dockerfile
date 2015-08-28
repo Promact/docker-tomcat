@@ -1,13 +1,10 @@
 FROM tomcat:7
 MAINTAINER Promact Infotech <onfo@promactinfo.com>
 
-RUN mkdir /webapps
-RUN mkdir /webapps/ZodiacTblMtnPoc
-RUN unzip /home/download/ZodiacTblMtnPoc.war -d /weapps/ZodiacTblMtnPoc
-
-VOLUME ["/webapps"]
-
-CMD /bin/sh
+ADD /home/downloads/ZodiacTblMtnPoc.war /tmp
+RUN unzip /tmp/ZodiacTblMtnPoc.war -d $CATALINA_HOME/webapps/ZodiacTblMtnPoc
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
 
 
 
