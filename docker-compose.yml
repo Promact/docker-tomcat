@@ -1,6 +1,8 @@
-web: 
+web:
   build: "."  
-  ports: 
-    - "80:80"
-  volumes: 
-    - "/home/root/resources:/var/www/html/resources"
+  environment:
+    URL: localhost
+    USERNAME: username
+    PASSWORD: password
+  net:
+    - "host"
